@@ -1,0 +1,616 @@
+{
+	"info": {
+		"_postman_id": "ebb06c59-1248-4431-abf7-4c151f4a09ed",
+		"name": "LibraryManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserArthentication",
+			"item": [
+				{
+					"name": "JWT Token Generation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"JWT token is generating access_token\", function () {\r",
+									"    pm.globals.unset(\"TOKEN\");\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.access_token);\r",
+									"    pm.globals.set(\"TOKEN\", jsonData.jwt);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userName\" : \"user\",\r\n\t\"password\" : \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Add Books",
+			"item": [
+				{
+					"name": "AddBook1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 1,\r\n    \"bookName\": \"C++\",\r\n    \"description\": \"C++ desc\",\r\n    \"checked\": false,\r\n    \"checkOutDate\": null,\r\n    \"dueDate\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook9",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 9,\r\n    \"bookName\": \"MultiThreading \",\r\n    \"description\": \"MultiThreading desc\",\r\n    \"checked\": true,\r\n    \"checkOutDate\": \"2021-11-25\",\r\n    \"dueDate\": \"2021-12-05\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook8",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 8,\r\n    \"bookName\": \"Software Design Principle\",\r\n    \"description\": \"Design desc\",\r\n    \"checked\": false,\r\n    \"checkOutDate\": null,\r\n    \"dueDate\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook7",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 7,\r\n    \"bookName\": \"AWS\",\r\n    \"description\": \"AWS desc\",\r\n    \"checked\": false,\r\n    \"checkOutDate\": null,\r\n    \"dueDate\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook6",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 6,\r\n    \"bookName\": \"RestFul Webservices\",\r\n    \"description\": \"RestFul Webservices desc\",\r\n    \"checked\": false,\r\n    \"checkOutDate\": null,\r\n    \"dueDate\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook5",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 5,\r\n    \"bookName\": \"Spring boot\",\r\n    \"description\": \"Spring boot desc\",\r\n    \"checked\": true,\r\n    \"checkOutDate\": \"2021-11-19\",\r\n    \"dueDate\": \"2021-11-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBooks10",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 10,\r\n    \"bookName\": \"Guide for Tourism\",\r\n    \"description\": \"Tourism desc\",\r\n    \"checked\": true,\r\n    \"checkOutDate\": \"2021-11-12\",\r\n    \"dueDate\": \"2021-11-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook4",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 4,\r\n    \"bookName\": \"Spring MVC\",\r\n    \"description\": \"Spring MVC desc\",\r\n    \"checked\": false,\r\n    \"checkOutDate\": null,\r\n    \"dueDate\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook3",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 3,\r\n    \"bookName\": \"javascript\",\r\n    \"description\": \"javascript desc\",\r\n    \"checked\": true,\r\n    \"checkOutDate\": \"2021-11-15\",\r\n    \"dueDate\": \"2021-11-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBook2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 2,\r\n    \"bookName\": \"java\",\r\n    \"description\": \"java desc\",\r\n    \"checked\": true,\r\n    \"checkOutDate\": \"2021-11-10\",\r\n    \"dueDate\": \"2021-11-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/addbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"addbooks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List All Books",
+			"item": [
+				{
+					"name": "List All Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List Available Books",
+			"item": [
+				{
+					"name": "List Available Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/availablebooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"availablebooks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List All Checked out Books",
+			"item": [
+				{
+					"name": "List All Checked out Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/checkedbooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"checkedbooks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books Post Due Date",
+			"item": [
+				{
+					"name": "Books for Due",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/duebooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"duebooks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checkout Book by ID",
+			"item": [
+				{
+					"name": "Checkout Book by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/book/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"book",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
